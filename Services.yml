@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata: 
+   name: simple-webapp-deployment
+   labels: 
+      name: simple-webapp
+spec: 
+   replicas: 4
+   selector: 
+      matchLabels: 
+         name: simple-webapp
+   template:
+      metadata:
+         labels:
+            name: simple-webapp
+      spec:
+         containers:
+         - name: simple-webapp
+           image: kodekloud/simple-webapp:red
+           ports:
+           - containerPort: 8080  
